@@ -9,6 +9,12 @@ import sait.bms.problemdomain.BookCook;
 import sait.bms.problemdomain.BookPaperBack;
 import sait.bms.problemdomain.BookPeriodical;
 
+/**
+ * Collection of methods used in program
+ * 
+ * @author Zennon and Joel
+ *
+ */
 public class AppManager {
 	private final String PATH = "res/books.txt";
 	private ArrayList<Book> bookList = new ArrayList<>();
@@ -28,13 +34,25 @@ public class AppManager {
 	private char genre;
 	private char frequency;
 	private Book b;
-	
-	
+
+	/**
+	 * default constructor for appManager class
+	 * 
+	 * @throws FileNotFoundException used for importing books.txt file
+	 */
 	public AppManager() throws FileNotFoundException {
 		this.bookList = new ArrayList<>();
 		this.LoadBooks();
+		// this.titleSearch(); // for testing this method
+		// this.randomBooks(); // for testing this method
 	}
 
+	/**
+	 * this method reads the books.txt file and determines what what type of
+	 * subclass it belongs to and loads the attributes accordingly
+	 * 
+	 * @throws FileNotFoundException used for importing books.txt file
+	 */
 	public void LoadBooks() throws FileNotFoundException {
 		FileInputStream isFile = new FileInputStream(PATH);
 		Scanner inFile = new Scanner(isFile, "UTF-8");
@@ -72,6 +90,7 @@ public class AppManager {
 				b = new BookCook(isbn, callNumber, available, total, title, publisher, diet);
 				bookList.add(b);
 				break;
+
 			case 4:
 			case 5:
 			case 6:
@@ -88,6 +107,7 @@ public class AppManager {
 				b = new BookPaperBack(isbn, callNumber, available, total, title, author, year, genre);
 				bookList.add(b);
 				break;
+
 			case 8:
 			case 9: // Periodicals
 				isbn = Long.parseLong(checkIsbn);
@@ -100,29 +120,44 @@ public class AppManager {
 				b = new BookPeriodical(isbn, callNumber, available, total, title, frequency);
 				bookList.add(b);
 				break;
-
 			}
-
 		}
-		for (Book b1 : bookList) {// for testing
-			System.out.println(b1.toString());// for testing
-		}
+		// for (Book b1 : bookList) {// for testing output of loadBooks
+		// System.out.println(b1.toString());// for testing output of loadBooks
+		// }
 		inFile.close();
 	}
 
+	/**
+	 * this method allows the user to do case insensitive search for stings in the
+	 * titles
+	 */
 	public void titleSearch() {
 		System.out.print("Enter title to search for: ");
 		String query = (input.next());
-		for (Book b1: bookList) {
-			if (b1.getTitle().matches(query) ) {
-				
+		System.out.println("Matching Results:");
+		for (Book b1 : bookList) {
+			if (b1.getTitle().toLowerCase().contains(query.toLowerCase())) { // case insensitive title search
+				System.out.println(b1.toString());
 			}
-			
 		}
-
 	}
 
+	/**
+	 * this method returns a specified number of random books from the list of books
+	 */
 	public void randomBooks() {
+		System.out.print("Enter the number of random books to display: ");
+		try {
+			int randomBookAmount = input.nextInt();
+			Collections.shuffle(bookList);
+			for (int i = 0; i < randomBookAmount; i++) {
+				System.out.println(bookList.get(i));
+			}
+		} catch (Exception e) {
+			System.out.println("Input accepts integers only");
+
+		}
 
 	}
 
