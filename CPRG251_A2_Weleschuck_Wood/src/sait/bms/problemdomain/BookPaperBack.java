@@ -50,10 +50,9 @@ public class BookPaperBack extends Book {
 	
 	@Override
 	public String toString() {
-		return "paperback book";
-		/*return String.format("%-15s%d\n%-15s%s\n%-15s%d\n%-15s%d\n%-15s%s\n%-15s%s\n%-15s%d\n%-15s%s\n", "ISBN:", getIsbn(),
+		return String.format("%-15s%d\n%-15s%s\n%-15s%d\n%-15s%d\n%-15s%s\n%-15s%s\n%-15s%d\n%-15s%s\n", "ISBN:", getIsbn(),
 				"Call Number:", getCallNumber(), "Available:", getAvailable(), "Total:", getTotal(), "Title:",
-				getTitle(), "Author:", getAuthor(), "year:", getYear(), "Genre:", GenreLong());*/
+				getTitle(), "Author:", getAuthor(), "year:", getYear(), "Genre:", GenreLong());
 	}
 
 	
