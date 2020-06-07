@@ -35,7 +35,8 @@ public class BookPeriodical extends Book{
 	}
 	@Override
 	public String toString() {
-		return String.format("%-15s%d\n%-15s%s\n%-15s%d\n%-15s%d\n%-15s%s\n%-15s%s\n%-15s%s\n", "ISBN:", getIsbn(),
+		return String.format("%-15s%d\n%-15s%s\n%-15s%d\n%-15s%d\n%-15s%s\n%-15s%s\n", "ISBN:", getIsbn(),
 				"Call Number:", getCallNumber(), "Available:", getAvailable(), "Total:", getTotal(), "Title:",
 				getTitle(), "Frequency", frequencyLong());
+}
 }

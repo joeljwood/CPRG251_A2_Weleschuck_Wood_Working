@@ -90,7 +90,7 @@ public class AppManager {
 				break;
 			case 8:
 			case 9: // Periodicals
-				/*isbn = Long.parseLong(checkIsbn);
+				isbn = Long.parseLong(checkIsbn);
 				callNumber = parts[1];
 				available = Integer.parseInt(parts[2]);
 				total = Integer.parseInt(parts[3]);
@@ -98,7 +98,7 @@ public class AppManager {
 				frequency= parts[5].charAt(0);
 
 				b = new BookPeriodical(isbn, callNumber, available, total, title, frequency);
-				bookList.add(b);*/
+				bookList.add(b);
 				break;
 
 			}
