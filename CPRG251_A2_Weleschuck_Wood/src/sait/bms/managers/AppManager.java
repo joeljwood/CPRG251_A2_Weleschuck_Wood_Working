@@ -151,6 +151,7 @@ public class AppManager {
 		try {
 			int randomBookAmount = input.nextInt();
 			Collections.shuffle(bookList);
+			System.out.println("Random Results:");
 			for (int i = 0; i < randomBookAmount; i++) {
 				System.out.println(bookList.get(i));
 			}
