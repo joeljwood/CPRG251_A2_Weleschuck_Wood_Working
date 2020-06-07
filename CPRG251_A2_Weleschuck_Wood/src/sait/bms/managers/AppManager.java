@@ -9,39 +9,39 @@ import sait.bms.problemdomain.BookCook;
 import sait.bms.problemdomain.BookPaperBack;
 import sait.bms.problemdomain.BookPeriodical;
 
-
 public class AppManager {
 	private final String PATH = "res/books.txt";
 	private ArrayList<Book> bookList = new ArrayList<>();
-
+	Scanner input = new Scanner(System.in);
+	private String checkIsbn;
+	private int lastIsbn;
+	private long isbn;
+	private String callNumber;
+	private int available;
+	private int total;
+	private String title;
+	private String author;
+	private char format;
+	private String publisher;
+	private char diet;
+	private int year;
+	private char genre;
+	private char frequency;
+	private Book b;
+	
+	
 	public AppManager() throws FileNotFoundException {
 		this.bookList = new ArrayList<>();
 		this.LoadBooks();
 	}
 
 	public void LoadBooks() throws FileNotFoundException {
-		ArrayList<Book> bookList = new ArrayList<>();
-		Book b;
-		String checkIsbn;
-		int lastIsbn;
-		long isbn;
-		String callNumber;
-		int available;
-		int total;
-		String title;
-		String author;
-		char format;
-		String publisher;
-		char diet;
-		int year;
-		char genre;
-		char frequency;
 		FileInputStream isFile = new FileInputStream(PATH);
 		Scanner inFile = new Scanner(isFile, "UTF-8");
 		while (inFile.hasNextLine()) {
 			String line = inFile.nextLine();
 			String[] parts = line.split(";");
-			
+
 			checkIsbn = parts[0];
 			lastIsbn = Integer.parseInt(checkIsbn.substring(checkIsbn.length() - 1)); // gets last digit of ISBN
 			switch (lastIsbn) {
@@ -95,7 +95,7 @@ public class AppManager {
 				available = Integer.parseInt(parts[2]);
 				total = Integer.parseInt(parts[3]);
 				title = parts[4];
-				frequency= parts[5].charAt(0);
+				frequency = parts[5].charAt(0);
 
 				b = new BookPeriodical(isbn, callNumber, available, total, title, frequency);
 				bookList.add(b);
@@ -105,8 +105,25 @@ public class AppManager {
 
 		}
 		for (Book b1 : bookList) {// for testing
-			System.out.println(b1.toString());//for testing
+			System.out.println(b1.toString());// for testing
 		}
 		inFile.close();
 	}
+
+	public void titleSearch() {
+		System.out.print("Enter title to search for: ");
+		String query = (input.next());
+		for (Book b1: bookList) {
+			if (b1.getTitle().matches(query) ) {
+				
+			}
+			
+		}
+
+	}
+
+	public void randomBooks() {
+
+	}
+
 }
