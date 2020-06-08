@@ -1,29 +1,70 @@
 package sait.bms.problemdomain;
 
+/**
+ * this subclass extend the super book class for paperback books
+ * @author Zennon and Joel
+ *
+ */
 public class BookPaperBack extends Book {
 	private String author;
 	private int year;
 	private char genre;
 	
+	/**
+	 * 
+	 * @return the  author of paper back books
+	 */
 	public String getAuthor() {
 		return author;
 	}
+	/**
+	 * 
+	 * @param author sets the author of paperback
+	 */
 	public void setAuthor(String author) {
 		this.author = author;
 	}
+	/**
+	 * 
+	 * @return the year the book was published
+	 */
 	public int getYear() {
 		return year;
 	}
+	
+	/**
+	 * 
+	 * @param year set the year the book was published
+	 */
 	public void setYear(int year) {
 		this.year = year;
 	}
+	/**
+	 * 
+	 * @return the short format version of the genre of the paper back book
+	 */
 	public char getGenre() {
 		return genre;
 	}
+	/**
+	 * 
+	 * @param genre set the genre in short format for the paper back book
+	 */
 	public void setGenre(char genre) {
 		this.genre = genre;
 	}
 	
+	/**
+	 * constructor for paperback book
+	 * @param isbn unique number for each book
+	 * @param callNumber used to sort physical books
+	 * @param available number of book to take out
+	 * @param total number of book library owns
+	 * @param title of book
+	 * @param author of paper back book
+	 * @param year paper book was published
+	 * @param genre short format of paper back book
+	 */
 	public BookPaperBack(long isbn, String callNumber, int available, int total, String title, String author, int year, char genre) {
 		super(isbn, callNumber, available, total, title);
 		this.author = author;
@@ -31,6 +72,10 @@ public class BookPaperBack extends Book {
 		this.genre = genre;
 	}
 	
+	/**
+	 * converts the short format version of genre to the long written out format
+	 * @return the long format of genre
+	 */
 	public String GenreLong() {
 		String tempGenreLong = "None";
 		if (genre == 'A') {
@@ -48,6 +93,9 @@ public class BookPaperBack extends Book {
 		}return tempGenreLong;
 	}
 	
+	/**
+	 * format print statment for paperback book objects
+	 */
 	@Override
 	public String toString() {
 		return String.format("%-15s%d\n%-15s%s\n%-15s%d\n%-15s%d\n%-15s%s\n%-15s%s\n%-15s%d\n%-15s%s\n", "ISBN:", getIsbn(),
