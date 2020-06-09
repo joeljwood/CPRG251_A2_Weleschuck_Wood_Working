@@ -76,6 +76,15 @@ public class BookChildrens extends Book {
 		}
 		return tempFormatLong;
 	}
+	/**
+	 * print formatted children's book for the books.txt file
+	 */
+	@Override
+	public String toPrint() {
+		return String.format("%d%1s%2s%1s%d%1s%d%1s%2s%1s%2s%1s%c%n", getIsbn(), ";",
+				getCallNumber(), ";", getAvailable(), ";", getTotal(), ";", getTitle(),
+				";", getAuthor(), ";", getFormat());
+	}
 
 	/**
 	 * print formatted children's book object

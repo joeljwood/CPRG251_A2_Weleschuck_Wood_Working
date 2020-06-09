@@ -62,6 +62,15 @@ public class BookPeriodical extends Book {
 		}
 		return tempFrequencyLong;
 	}
+	/**
+	 * print formatted children's book for the books.txt file
+	 */
+	@Override
+	public String toPrint() {
+		return String.format("%d%1s %2s%1s %d%1s %d%1s %2s%1s %c%n", getIsbn(), ";",
+				getCallNumber(), ";", getAvailable(), ";", getTotal(), ";", getTitle(),
+			    ";", getFrequency());
+	}
 
 	/**
 	 * prints formatted output for periodical objects

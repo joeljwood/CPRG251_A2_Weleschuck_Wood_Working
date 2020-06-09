@@ -38,10 +38,9 @@ public class AppManager {
 
 	/**
 	 * default constructor for appManager class
-	 * 
-	 * @throws FileNotFoundException used for importing books.txt file
+	 * @throws IOException 
 	 */
-	public void AppManager() throws FileNotFoundException {
+	public void AppManager() throws IOException {
 		int option = 0;
 		
 		this.bookList = new ArrayList<>();
@@ -59,6 +58,7 @@ public class AppManager {
 			} else if (option == 4) {
 				this.randomBooks();
 			} else if (option == 5) {
+				this.SaveBooks();
 				 System.exit(0);
 			} else {
 				System.out.println("invaild input!");
@@ -311,6 +311,16 @@ public class AppManager {
 
 		}
 
+	}
+	public void SaveBooks() throws IOException {
+		File newBooks = new File(PATH);
+		PrintWriter output = new PrintWriter(newBooks);
+		
+		for(Book b1: bookList) {
+			output.print(b1.toPrint());
+		}
+		
+		output.close();
 	}
 
 }

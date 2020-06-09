@@ -121,9 +121,15 @@ public class Book {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	/**
+	 * passes the inheritance of toPrint method down so it can be called from the arrayList in the App manager
+	 */
+	public String toPrint() {
+		return String.format("error did not override to child method");
+	}
 
 	/**
-	 * Print statment for book object
+	 * Print statement for book object
 	 */
 	@Override
 	public String toString() {

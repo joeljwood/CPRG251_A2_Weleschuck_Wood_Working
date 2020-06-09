@@ -92,9 +92,18 @@ public class BookPaperBack extends Book {
 			tempGenreLong = "Science Fiction";;
 		}return tempGenreLong;
 	}
+	/**
+	 * print formatted children's book for the books.txt file
+	 */
+	@Override
+	public String toPrint() {
+		return String.format("%d%1s %2s%1s %d%1s %d%1s %2s%1s %2s%1s %d%1s %c%n", getIsbn(), ";",
+				getCallNumber(), ";", getAvailable(), ";", getTotal(), ";", getTitle(),
+				";", getAuthor(), ";", getYear(), ";", getGenre());
+	}
 	
 	/**
-	 * format print statment for paperback book objects
+	 * format print statement for paperback book objects
 	 */
 	@Override
 	public String toString() {

@@ -77,6 +77,15 @@ public class BookCook extends Book {
 		}
 		return tempDietLong;
 	}
+	/**
+	 * print formatted cook book for the books.txt file
+	 */
+	@Override
+	public String toPrint() {
+		return String.format("%d%1s %2s%1s %d%1s %d%1s %2s%1s %2s%1s %c%n", getIsbn(), ";",
+				getCallNumber(), ";", getAvailable(), ";", getTotal(), ";", getTitle(),
+				";", getPublisher(), ";", getDiet());
+	}
 
 	/**
 	 * for printing a formated output of cook book objects
